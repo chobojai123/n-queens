@@ -79,14 +79,32 @@
     //
     // test if a specific row on this board contains a conflict
     hasRowConflictAt: function(rowIndex) {
-      return false; // fixme
+      // get row #?
+      var row = this.get(rowIndex);
+      // result for # of conflicts
+                      // console.log(this.get(rowIndex));
+      var result = 0;
+      // loop through the # rows
+      for (var i = 0; i < row.length; i++) {
+        // if there is one conflict
+        if (row[i]) {
+          // increase the # of conflicts
+          result++;
+        }
+      }
+      // should return true if more than 1, 2 = conflict
+      return (result > 1);
     },
 
     // test if any rows on this board contain conflicts
     hasAnyRowConflicts: function() {
-      return false; // fixme
+      for(var i = 0; i < this.get('n'); i ++){
+        if(this.hasRowConflictAt(i)){
+          return true;
+        }
+      }
+      return false;
     },
-
 
 
     // COLUMNS - run from top to bottom
@@ -94,14 +112,30 @@
     //
     // test if a specific column on this board contains a conflict
     hasColConflictAt: function(colIndex) {
-      return false; // fixme
+      //  helper variable to get row number
+      var rowNumber = this.rows();
+      var column = this.get(colIndex);
+      // write same result code as row
+      var result = 0;
+      for (var i = 0; i < column.length; i++) {
+        if (rowNumber[i][colIndex]) {
+          result++;
+        }
+      }
+      return (result > 1);
+      console.log('1')
     },
 
     // test if any columns on this board contain conflicts
     hasAnyColConflicts: function() {
-      return false; // fixme
-    },
+      for(var i = 0; i < this.get('n'); i ++){
+        if(this.hasColConflictAt(i)){
+          return true;
+        }
+      }
+      return false;
 
+    },
 
 
     // Major Diagonals - go from top-left to bottom-right
@@ -109,7 +143,12 @@
     //
     // test if a specific major diagonal on this board contains a conflict
     hasMajorDiagonalConflictAt: function(majorDiagonalColumnIndexAtFirstRow) {
-      return false; // fixme
+      var row = this.rows();
+      var result = 0;
+      for(var i = 0 ; i)
+
+
+      return (result > 1); // fixme
     },
 
     // test if any major diagonals on this board contain conflicts
