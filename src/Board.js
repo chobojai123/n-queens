@@ -143,6 +143,7 @@
     // test if a specific major diagonal on this board contains a conflict
     hasMajorDiagonalConflictAt: function(majorDiagonalColumnIndexAtFirstRow) {
       var count = 0;
+      var j = majorDiagonalColumnIndexAtFirstRow;
       var rows = this.rows();
       for(var i = 0; i < rows.length; i++){
         if(rows[i][majorDiagonalColumnIndexAtFirstRow + i] === 1) {

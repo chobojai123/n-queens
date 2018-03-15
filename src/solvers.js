@@ -16,10 +16,22 @@
 
 
 window.findNRooksSolution = function(n) {
-  var solution = undefined; //fixme
-
+  var solution = new Board({n:n});
+  var rooks = n; // n = 4
+  var matrix = solution.rows();
+  // loop through rows and columnss 
+  // i = rows, j = column
+  console.log(matrix);
+  for(var i = 0; i < n; i ++){
+    for(var j = 0; j < n; j ++){
+      if(i === j){
+        matrix[i][j] = 1;
+        }
+      }
+    }
+  
   console.log('Single solution for ' + n + ' rooks:', JSON.stringify(solution));
-  return solution;
+  return matrix ;
 };
 
 // return the number of nxn chessboards that exist, with n rooks placed such that none of them can attack each other
